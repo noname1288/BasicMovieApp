@@ -1,242 +1,47 @@
 package com.example.testexoplayer1.data.model
 
+import com.google.gson.annotations.SerializedName
+
 data class MovieModel(
-    val _id: String,
-    val category: List<Category>,
-    val country: List<Country>,
-    val episode_current: String,
-    val imdb: Imdb,
-    val lang: String,
-    val modified: Modified,
-    val name: String,
-    val origin_name: String,
-    val poster_url: String,
-    val quality: String,
-    val slug: String,
-    val sub_docquyen: Boolean,
-    val thumb_url: String,
-    val time: String,
-    val tmdb: Tmdb,
-    val type: String,
-    val year: Int
-){
-    companion object{
-        val mockData = listOf(
-            MovieModel(
-                _id = "f7ae62994651460a9f6295c9e34614ec",
-                category = listOf(
-                    Category("ba6fd52e5a3aca80eaaf1a3b50a182db", "Hài Hước", "hai-huoc"),
-                    Category("37a7b38b6184a5ebd3c43015aa20709d", "Chính Kịch", "chinh-kich"),
-                    Category("a7b065b92ad356387ef2e075dee66529", "Tâm Lý", "tam-ly")
-                ),
-                country = listOf(Country("74d9fa92f4dea9ecea8fc2233dc7921a", "Âu Mỹ", "au-my")),
-                episode_current = "Tập 6",
-                imdb = Imdb(null),
-                lang = "Vietsub",
-                modified = Modified("2025-11-09T23:27:31.000Z"),
-                name = "Chad Powers",
-                origin_name = "Chad Powers",
-                poster_url = "https://phimimg.com/upload/vod/20251010-1/b8eee31350c8d3654682d9001b11d653.jpg",
-                quality = "FHD",
-                slug = "chad-powers",
-                sub_docquyen = false,
-                thumb_url = "https://phimimg.com/upload/vod/20251010-1/bf286266629a43d56e42211366579685.jpg",
-                time = "40 phút/tập",
-                tmdb = Tmdb("tv", "247168", 1, 8.727, 11),
-                type = "series",
-                year = 2025
-            ),
-            MovieModel(
-                _id = "b82f5b31a1b0428d8d3b9d1d3b4710c2",
-                category = listOf(
-                    Category("37a7b38b6184a5ebd3c43015aa20709d", "Chính Kịch", "chinh-kich"),
-                    Category("a7b065b92ad356387ef2e075dee66529", "Tâm Lý", "tam-ly")
-                ),
-                country = listOf(Country("74d9fa92f4dea9ecea8fc2233dc7921a", "Âu Mỹ", "au-my")),
-                episode_current = "Tập 10",
-                imdb = Imdb("tt11732578"),
-                lang = "Vietsub",
-                modified = Modified("2025-10-20T15:00:00.000Z"),
-                name = "The Last Agent",
-                origin_name = "The Last Agent",
-                poster_url = "https://phimimg.com/upload/vod/20250915-1/agent-poster.jpg",
-                quality = "HD",
-                slug = "the-last-agent",
-                sub_docquyen = false,
-                thumb_url = "https://phimimg.com/upload/vod/20250915-1/agent-thumb.jpg",
-                time = "45 phút/tập",
-                tmdb = Tmdb("tv", "190872", 1, 7.9, 54),
-                type = "series",
-                year = 2024
-            ),
-            MovieModel(
-                _id = "c2ff9918e0df4bc2841a3d225d22a77d",
-                category = listOf(
-                    Category("ba6fd52e5a3aca80eaaf1a3b50a182db", "Hài Hước", "hai-huoc")
-                ),
-                country = listOf(Country("74d9fa92f4dea9ecea8fc2233dc7921a", "Âu Mỹ", "au-my")),
-                episode_current = "Tập 8",
-                imdb = Imdb("tt9876543"),
-                lang = "Vietsub",
-                modified = Modified("2025-08-05T10:30:00.000Z"),
-                name = "Office Trouble",
-                origin_name = "Office Trouble",
-                poster_url = "https://phimimg.com/upload/vod/20250805-1/office.jpg",
-                quality = "FHD",
-                slug = "office-trouble",
-                sub_docquyen = false,
-                thumb_url = "https://phimimg.com/upload/vod/20250805-1/office-thumb.jpg",
-                time = "35 phút/tập",
-                tmdb = Tmdb("tv", "234512", 1, 8.1, 122),
-                type = "series",
-                year = 2025
-            ),
-            MovieModel(
-                _id = "a4bc772935b4475d9c293a83211a4ad5",
-                category = listOf(
-                    Category("a7b065b92ad356387ef2e075dee66529", "Tâm Lý", "tam-ly"),
-                    Category("37a7b38b6184a5ebd3c43015aa20709d", "Chính Kịch", "chinh-kich")
-                ),
-                country = listOf(Country("74d9fa92f4dea9ecea8fc2233dc7921a", "Âu Mỹ", "au-my")),
-                episode_current = "Tập 12",
-                imdb = Imdb("tt12839482"),
-                lang = "Thuyết minh",
-                modified = Modified("2025-06-21T18:00:00.000Z"),
-                name = "Silent Mind",
-                origin_name = "Silent Mind",
-                poster_url = "https://phimimg.com/upload/vod/20250621-1/silent.jpg",
-                quality = "FHD",
-                slug = "silent-mind",
-                sub_docquyen = true,
-                thumb_url = "https://phimimg.com/upload/vod/20250621-1/silent-thumb.jpg",
-                time = "50 phút/tập",
-                tmdb = Tmdb("tv", "210321", 1, 9.0, 203),
-                type = "series",
-                year = 2025
-            ),
-            MovieModel(
-                _id = "df133a2242c042d0b99a271f112b320a",
-                category = listOf(
-                    Category("ba6fd52e5a3aca80eaaf1a3b50a182db", "Hài Hước", "hai-huoc"),
-                    Category("37a7b38b6184a5ebd3c43015aa20709d", "Chính Kịch", "chinh-kich")
-                ),
-                country = listOf(Country("74d9fa92f4dea9ecea8fc2233dc7921a", "Âu Mỹ", "au-my")),
-                episode_current = "Tập 4",
-                imdb = Imdb(null),
-                lang = "Vietsub",
-                modified = Modified("2025-05-12T09:20:00.000Z"),
-                name = "Couch Surfing",
-                origin_name = "Couch Surfing",
-                poster_url = "https://phimimg.com/upload/vod/20250512-1/couch.jpg",
-                quality = "HD",
-                slug = "couch-surfing",
-                sub_docquyen = false,
-                thumb_url = "https://phimimg.com/upload/vod/20250512-1/couch-thumb.jpg",
-                time = "30 phút/tập",
-                tmdb = Tmdb("tv", "239875", 1, 7.4, 67),
-                type = "series",
-                year = 2024
-            ),
-            MovieModel(
-                _id = "e891ab335e7546ad97dc3a881e33e109",
-                category = listOf(Category("37a7b38b6184a5ebd3c43015aa20709d", "Chính Kịch", "chinh-kich")),
-                country = listOf(Country("74d9fa92f4dea9ecea8fc2233dc7921a", "Âu Mỹ", "au-my")),
-                episode_current = "Tập 3",
-                imdb = Imdb("tt11223344"),
-                lang = "Vietsub",
-                modified = Modified("2025-04-10T14:45:00.000Z"),
-                name = "The Hidden Truth",
-                origin_name = "The Hidden Truth",
-                poster_url = "https://phimimg.com/upload/vod/20250410-1/truth.jpg",
-                quality = "FHD",
-                slug = "the-hidden-truth",
-                sub_docquyen = true,
-                thumb_url = "https://phimimg.com/upload/vod/20250410-1/truth-thumb.jpg",
-                time = "55 phút/tập",
-                tmdb = Tmdb("tv", "222888", 1, 8.5, 95),
-                type = "series",
-                year = 2025
-            ),
-            MovieModel(
-                _id = "eaf789ccdf1045a1a9a3df102f30443b",
-                category = listOf(Category("ba6fd52e5a3aca80eaaf1a3b50a182db", "Hài Hước", "hai-huoc")),
-                country = listOf(Country("74d9fa92f4dea9ecea8fc2233dc7921a", "Âu Mỹ", "au-my")),
-                episode_current = "Tập 2",
-                imdb = Imdb("tt55667788"),
-                lang = "Vietsub",
-                modified = Modified("2025-03-11T10:00:00.000Z"),
-                name = "Weekend With Dad",
-                origin_name = "Weekend With Dad",
-                poster_url = "https://phimimg.com/upload/vod/20250311-1/dad.jpg",
-                quality = "FHD",
-                slug = "weekend-with-dad",
-                sub_docquyen = false,
-                thumb_url = "https://phimimg.com/upload/vod/20250311-1/dad-thumb.jpg",
-                time = "25 phút/tập",
-                tmdb = Tmdb("tv", "211456", 1, 8.0, 32),
-                type = "series",
-                year = 2025
-            ),
-            MovieModel(
-                _id = "ac23c8bb7ea5417f89b8acff4c13012d",
-                category = listOf(Category("a7b065b92ad356387ef2e075dee66529", "Tâm Lý", "tam-ly")),
-                country = listOf(Country("74d9fa92f4dea9ecea8fc2233dc7921a", "Âu Mỹ", "au-my")),
-                episode_current = "Tập 1",
-                imdb = Imdb(null),
-                lang = "Vietsub",
-                modified = Modified("2025-02-10T09:00:00.000Z"),
-                name = "Breaking Lines",
-                origin_name = "Breaking Lines",
-                poster_url = "https://phimimg.com/upload/vod/20250210-1/breaking.jpg",
-                quality = "HD",
-                slug = "breaking-lines",
-                sub_docquyen = false,
-                thumb_url = "https://phimimg.com/upload/vod/20250210-1/breaking-thumb.jpg",
-                time = "42 phút/tập",
-                tmdb = Tmdb("tv", "198732", 1, 7.5, 81),
-                type = "series",
-                year = 2025
-            ),
-            MovieModel(
-                _id = "a88eaf2b9a1b4e65a9d310883ff7726d",
-                category = listOf(Category("37a7b38b6184a5ebd3c43015aa20709d", "Chính Kịch", "chinh-kich")),
-                country = listOf(Country("74d9fa92f4dea9ecea8fc2233dc7921a", "Âu Mỹ", "au-my")),
-                episode_current = "Tập 5",
-                imdb = Imdb("tt99887766"),
-                lang = "Vietsub",
-                modified = Modified("2025-01-15T12:00:00.000Z"),
-                name = "Storm City",
-                origin_name = "Storm City",
-                poster_url = "https://phimimg.com/upload/vod/20250115-1/storm.jpg",
-                quality = "FHD",
-                slug = "storm-city",
-                sub_docquyen = true,
-                thumb_url = "https://phimimg.com/upload/vod/20250115-1/storm-thumb.jpg",
-                time = "48 phút/tập",
-                tmdb = Tmdb("tv", "211789", 1, 9.1, 105),
-                type = "series",
-                year = 2025
-            ),
-            MovieModel(
-                _id = "cc32bb11e4aa471c8e9a115ab32d5fa1",
-                category = listOf(Category("ba6fd52e5a3aca80eaaf1a3b50a182db", "Hài Hước", "hai-huoc")),
-                country = listOf(Country("74d9fa92f4dea9ecea8fc2233dc7921a", "Âu Mỹ", "au-my")),
-                episode_current = "Tập 7",
-                imdb = Imdb("tt11220033"),
-                lang = "Vietsub",
-                modified = Modified("2024-12-30T20:00:00.000Z"),
-                name = "Family Business",
-                origin_name = "Family Business",
-                poster_url = "https://phimimg.com/upload/vod/20241230-1/family.jpg",
-                quality = "HD",
-                slug = "family-business",
-                sub_docquyen = false,
-                thumb_url = "https://phimimg.com/upload/vod/20241230-1/family-thumb.jpg",
-                time = "40 phút/tập",
-                tmdb = Tmdb("tv", "178934", 1, 8.3, 72),
-                type = "series",
-                year = 2024
-            )
-        )
-    }
-}
+    @SerializedName("_id")
+    val id: String = "",
+
+    val actor: List<String> = emptyList(),
+    val category: List<Category> = emptyList(),
+
+    val chieurap: Boolean = false,
+    val content: String = "",
+    val country: List<Country> = emptyList(),
+    val director: List<String> = emptyList(),
+
+    @SerializedName("episode_current")
+    val episodeCurrent: String = "",
+
+    @SerializedName("episode_total")
+    val episodeTotal: String = "",
+
+    val lang: String = "",
+    val name: String = "",
+
+    @SerializedName("origin_name")
+    val originName: String = "",
+
+    @SerializedName("poster_url")
+    val posterUrl: String = "",
+
+    val quality: String = "",
+    val slug: String = "",
+    val status: String = "",
+
+    @SerializedName("thumb_url")
+    val thumbUrl: String = "",
+
+    val time: String = "",
+
+    @SerializedName("trailer_url")
+    val trailerUrl: String = "",
+
+    val type: String = "",
+    val view: Int = 0,
+    val year: Int = 0
+)

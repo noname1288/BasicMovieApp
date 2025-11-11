@@ -1,8 +1,8 @@
 package com.example.testexoplayer1.screen.listmovie
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
-import android.view.ViewGroup
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -10,9 +10,10 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.testexoplayer1.R
-import com.example.testexoplayer1.data.model.MovieModel
+import com.example.testexoplayer1.data.model.MovieWrapper
 import com.example.testexoplayer1.data.repository.MovieRepository
 import com.example.testexoplayer1.databinding.ActivityMoviesBinding
+import com.example.testexoplayer1.screen.detail.MovieDetailActivity
 import com.example.testexoplayer1.screen.listmovie.adapter.MoviesAdapter
 
 class MoviesActivity : AppCompatActivity(), MovieContract.View {
@@ -58,13 +59,26 @@ class MoviesActivity : AppCompatActivity(), MovieContract.View {
         binding.progressBar.visibility = View.GONE
     }
 
-    override fun fetchMovies(data: List<MovieModel>) {
-        moviesAdapter = MoviesAdapter(data)
+    override fun fetchMovies(data: List<MovieWrapper>) {
+        moviesAdapter = MoviesAdapter(data){ slug ->
+            navigateToDetailScreen(slug)
+        }
         binding.rvMovies.layoutManager = GridLayoutManager(this, 2)
         binding.rvMovies.adapter = moviesAdapter
     }
 
     override fun showError(msg: String) {
         Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
+    }
+
+    private fun navigateToDetailScreen(slug: String){
+        val intent = Intent(this, MovieDetailActivity::class.java)
+        intent.putExtra(SLUG, slug)
+        startActivity(intent)
+    }
+
+    companion object{
+        const val SLUG = "slug"
+
     }
 }
